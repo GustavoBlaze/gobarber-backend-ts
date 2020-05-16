@@ -4,11 +4,7 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToOne,
-  JoinColumn,
 } from 'typeorm';
-
-import User from './User';
 
 // DTO: Data Transfer Object
 // interface AppointmentContructor {
@@ -16,20 +12,19 @@ import User from './User';
 //   date: Date;
 // }
 
-@Entity('appointments')
-class Appointment {
+@Entity('users')
+class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  provider_id: string;
+  name: string;
 
-  @ManyToOne(() => User)
-  @JoinColumn({ name: 'provider_id' })
-  provider: User;
+  @Column()
+  email: string;
 
-  @Column('timestamp with time zone')
-  date: Date;
+  @Column()
+  password: string;
 
   @CreateDateColumn()
   created_at: Date;
@@ -38,4 +33,4 @@ class Appointment {
   updated_at: Date;
 }
 
-export default Appointment;
+export default User;
