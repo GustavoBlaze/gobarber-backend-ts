@@ -8,13 +8,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 
-import User from './User';
-
-// DTO: Data Transfer Object
-// interface AppointmentContructor {
-//   provider: string;
-//   date: Date;
-// }
+import User from '@modules/users/infra/typeorm/entities/User';
 
 @Entity('appointments')
 class Appointment {
